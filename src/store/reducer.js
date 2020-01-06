@@ -32,6 +32,14 @@ const reducer = (state = initialState, action) => {
                 // concat is an immutable way of updated an array and returns a new array
                 results: state.results.concat({id: new Date(), value: state.counter})
             }
+        case 'DELETE_RESULT':
+           
+            const updatedArray = state.results.filter(result => result.id !== action.resultElId);
+            return {
+                ...state,
+                results: updatedArray
+
+            }
     }
     return state;
 };
